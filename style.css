@@ -34,27 +34,27 @@ p { margin-bottom: 10px; }
 header nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
 .logo {
     font-family: var(--font-headings);
-    font-size: 1.8em;
+    font-size: 1.5em; /* Reduzimos um pouco o tamanho base para o layout horizontal */
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
     
-    /* Para alinhar a imagem e o texto em coluna */
+    /* MUDANÇA PRINCIPAL: Layout em linha (lado a lado) */
     display: flex;
-    flex-direction: column; /* Coloca os itens um abaixo do outro */
-    align-items: center; /* Alinha o conteúdo à esquerda dentro do container flex */
-    gap: 5px; /* Espaço menor entre a imagem e o texto */
+    flex-direction: row; /* Itens em linha */
+    align-items: center; /* Alinha verticalmente no centro */
+    gap: 15px; /* Aumenta o espaço para o layout horizontal */
 }
 
 .logo img {
-    height: 150px; /* Aumenta a altura da sua logo (antes 40px) */
-     /* Mantém a proporção */
+    height: 50px; /* Um tamanho bom para ficar ao lado do texto */
 }
 
 .logo .logo-text {
-    font-size: 30px; /* Reduz um pouco o tamanho do texto para dar mais destaque à imagem */
-    font-weight: 500; /* Pode ajustar a espessura do texto */
-    color: var(--primary-color); /* Garante a cor do texto */
+    font-size: 1.2em; /* Tamanho do texto ajustado */
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
 }
 .hero { text-align: center; color: var(--white-color); background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), url(https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070) center/cover; }
 .hero h1 { color: var(--white-color); font-size: 2.8em; }
@@ -98,4 +98,24 @@ footer { text-align: center; padding: 20px 0; font-size: 0.9em; color: #666; }
     header nav { flex-direction: column; gap: 15px; }
     .form-container { flex-direction: column; }
     .motivational-text, .form-wrapper { width: 100%; padding: 40px 30px; }
+}
+
+@media (max-width: 800px) {
+    header nav { flex-direction: column; gap: 15px; }
+    .form-container { flex-direction: column; }
+    .motivational-text, .form-wrapper { width: 100%; padding: 40px 30px; }
+
+    /* --- ADICIONE ESTAS REGRAS ABAIXO --- */
+    .logo {
+        flex-direction: column; /* Volta a ser coluna */
+        gap: 5px; /* Diminui o espaço para o layout vertical */
+    }
+
+    .logo img {
+        height: 60px; /* Aumenta a imagem no mobile para dar destaque */
+    }
+    
+    .logo .logo-text {
+        font-size: 1em; /* Ajusta o texto para o layout mobile */
+    }
 }
